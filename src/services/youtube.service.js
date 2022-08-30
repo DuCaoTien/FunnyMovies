@@ -22,7 +22,11 @@ export const getVideos = async () => {
 const getVideoDetails = async (videoId) => {
     try {
         const videoResponse = await axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=player&part=statistics&id=${videoId}&key=${API_KEY}`)
-        return videoResponse.data?.items[0]?.snippet || {};
+        return Object.assign({},
+            videoResponse.data?.items[0]?.snippet,
+            videoResponse.data?.items[0]?.contentDetails,
+            videoResponse.data?.items[0]?.statistics
+        )
 
     } catch (error) {
         console.log(error);

@@ -7,9 +7,8 @@ const DataRow = memo(function DataRow(props) {
     const {
         thumbnails,
         localized: { title = "", description = ""} = {},
-        email,
-        votedUp,
-        votedDown
+        channelTitle,
+        likeCount
     } = data;
     return (
         <div className="row">
@@ -24,15 +23,15 @@ const DataRow = memo(function DataRow(props) {
             <div className="side">
                 <div className="w100 info">
                     <div className="title">{title}</div>
-                    {/*<div className="subTitle">*/}
-                    {/*    <span>Shared by: </span>*/}
-                    {/*    <span>{email}</span>*/}
-                    {/*</div>*/}
+                    <div className="subTitle">
+                        <span>Shared by: </span>
+                        <span>{channelTitle}</span>
+                    </div>
                 </div>
                 <div className="w100 action">
-                    {/*<Button name="voted-up">*/}
-                    {/*    {votedUp}*/}
-                    {/*</Button>*/}
+                    <Button name="voted-up">
+                        {likeCount}
+                    </Button>
                     {/*<Button name="voted-down">*/}
                     {/*    {votedDown}*/}
                     {/*</Button>*/}
