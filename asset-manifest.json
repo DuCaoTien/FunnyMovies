@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/FunnyMovies/static/css/main.622a13c6.css",
-    "main.js": "/FunnyMovies/static/js/main.5f37dac2.js",
+    "main.js": "/FunnyMovies/static/js/main.8eba19d0.js",
     "index.html": "/FunnyMovies/index.html",
     "main.622a13c6.css.map": "/FunnyMovies/static/css/main.622a13c6.css.map",
-    "main.5f37dac2.js.map": "/FunnyMovies/static/js/main.5f37dac2.js.map"
+    "main.8eba19d0.js.map": "/FunnyMovies/static/js/main.8eba19d0.js.map"
   },
   "entrypoints": [
     "static/css/main.622a13c6.css",
-    "static/js/main.5f37dac2.js"
+    "static/js/main.8eba19d0.js"
   ]
 }
