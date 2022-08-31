@@ -114,19 +114,19 @@ function Header() {
             }
         });
         if (typeof navigate === 'function') {
-            navigate('/');
+            navigate('/FunnyMovies/');
         }
     }, [navigate]);
 
     const handleShareMovie = useCallback(() => {
         if (typeof navigate === 'function') {
-            navigate('/share');
+            navigate('/FunnyMovies/share');
         }
     }, [navigate]);
 
     const goHomePage = useCallback(() => {
         if (typeof navigate === 'function') {
-            navigate('/');
+            navigate('/FunnyMovies/');
         }
     }, [navigate]);
 

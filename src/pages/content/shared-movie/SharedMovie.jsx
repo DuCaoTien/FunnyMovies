@@ -31,7 +31,7 @@ function SharedMovie (){
 
             if (!isEmpty(response)) {
                 toast.success("Share the youtube successful");
-                return navigate('/');
+                return navigate('/FunnyMovies/');
             }
         }
 

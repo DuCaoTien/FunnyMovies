@@ -2,7 +2,7 @@
     "name": "funny-movies",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://ducaotien.github.io",
+    "homepage": "https://ducaotien.github.io/FunnyMovies",
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.3.0",
@@ -45,6 +45,7 @@
     },
     "devDependencies": {
         "css-loader": "^6.7.1",
+        "gh-pages": "^4.0.0",
         "prop-types": "^15.8.1",
         "sass": "^1.54.5",
         "sass-loader": "^13.0.2"

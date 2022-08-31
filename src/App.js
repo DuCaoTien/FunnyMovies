@@ -15,10 +15,10 @@ function App() {
             <React.Fragment>
                 <Header/>
                 <Routes>
-                    <Route exact path='/' element={<Dashboard/>}/>
+                    <Route exact path='/FunnyMovies/' element={<Dashboard/>}/>
                     <Route
                         exact
-                        path='/share'
+                        path='/FunnyMovies/share'
                         element={
                             <ProtectedRoute>
                                 <SharedMovie/>
