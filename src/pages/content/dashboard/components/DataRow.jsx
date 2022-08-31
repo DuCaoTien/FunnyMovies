@@ -19,13 +19,14 @@ const DataRow = memo(function DataRow(props) {
     return (
         <div className="row">
             <div className="side">
+                <div className="bg" />
                 <iframe
                     loading="lazy"
                     title={formattedLink}
                     src={formattedLink}
                     frameBorder="0"
-                    width="80%"
-                    height="100%"
+                    width="480px"
+                    height="340px"
                     allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"
                     allowFullScreen
                 />
@@ -47,7 +48,7 @@ const DataRow = memo(function DataRow(props) {
                     </Button>
                 </div>
                 <div className="w100 des">
-                    <div className="label">Description</div>
+                    <div className="label">Description: </div>
                     <p>{description}</p>
                 </div>
             </div>
