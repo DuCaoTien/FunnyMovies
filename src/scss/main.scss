@@ -27,6 +27,12 @@ input[type="text"]::-moz-focus-inner,
 button::-moz-focus-inner {
     border: 0;
 }
+
+button:disabled {
+	opacity: 0.6;
+	overflow: hidden;
+	cursor: not-allowed;
+}
 textarea,
 input.text,
 input[type="text"],

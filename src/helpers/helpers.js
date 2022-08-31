@@ -1,4 +1,4 @@
-export const getVideoIdByUrl = (youtubeLink) => {
+const getVideoIdByUrl = (youtubeLink) => {
     let video_id = youtubeLink.split('v=')[1];
 
     const ampersandPosition = video_id.indexOf('&');
@@ -8,4 +8,11 @@ export const getVideoIdByUrl = (youtubeLink) => {
     }
 
     return video_id;
+}
+
+const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
+
+export {
+    getVideoIdByUrl,
+    isValidEmail
 }

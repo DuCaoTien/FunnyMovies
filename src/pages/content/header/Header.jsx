@@ -1,122 +1,192 @@
-import { Component, useState } from 'react';
+import { useState, useCallback } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import isEmpty from 'lodash/isEmpty'
+import bcrypt from 'bcryptjs'
+
+import { isValidEmail } from "../../../helpers/helpers";
+
+import 'react-toastify/dist/ReactToastify.css';
 import './styles.scss';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
+const LOGIN_BTN_NAME = "btn_login";
 
-        this.state = {
-            email: "",
-            password: "",
-            isSignedIn: false
-        };
+function Header() {
 
-        this.handleLogout = this.handleLogout.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-    }
+    const [state, setState] = useState({
+        email: "",
+        password: "",
+        isSignedIn: false
+    });
 
-    handleChange = function ({ target: { name, value } }) {
+    const { email, password, isSignedIn } = state;
 
-        this.setState({ [name]: value });
+    const handleChange = useCallback((event) => {
+        setState((prevState) => {
+            return {
+                ...prevState,
+                [event.target.name]: event.target.value,
+            }
+        })
+    }, []);
 
-    };
+    const handleSubmit = useCallback(async (event) => {
+        if (!isValidEmail(email)) {
+            return toast.error("Email is invalid");
+        }
 
-    handleLogin = async function () {
-        const { email, password, formControl } = this.state;
-    };
+        if (password.length < 6) {
+            return toast.error("Password requires 6 characters minimum");
+        }
 
-    handleLogout = function (event) {
-        event.preventDefault();
-    };
+        const accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+        const hashedPassword = bcrypt.hashSync(password);
+        const duplicateEmailAccount = accounts.find((account) => account.email === email);
 
-    handleSubmit = function (event) {
-        event.preventDefault();
-        this.handleLogin();
-    };
+        if (event.target.name === LOGIN_BTN_NAME) {
+            if (!isEmpty(duplicateEmailAccount)) {
+                bcrypt.compare(password, duplicateEmailAccount.password, (err, isExistPassword) => {
 
-    render() {
-        const {
-            email,
-            password,
-            isSignedIn
-        } = this.state;
-        return (
-            <header>
-                <div className="header_content">
-                    <div className="header_side">
-                        <div className="logo">FUNNY MOVIES</div>
-                    </div>
-                    <div className="header_side">
-                        <div className='signin'>
-                            {(!isSignedIn &&
-                                <>
-                                    <div>
-                                        <input
-                                            id="email"
-                                            name="email"
-                                            className="input"
-                                            type="text"
-                                            value={email}
-                                            onChange={this.handleChange}
-                                            autoComplete="email"
-                                        />
-                                    </div>
-                                    <div>
-                                        <input
-                                            id="password"
-                                            name="password"
-                                            className="input"
-                                            type='password'
-                                            value={password}
-                                            autoComplete="new-password"
-                                            onChange={this.handleChange}
-                                        />
-                                    </div>
-                                    <div className="submit">
-                                        <button
-                                            tabIndex="0"
-                                            name="btn_login"
-                                            aria-label='login'
-                                            onClick={this.handleSubmit}
-                                        >
-                                            Login / Register
-                                        </button>
-                                    </div>
-                                </>)
-                                ||
-                                <>
-                                    <div className="">
-                                        <span>Welcome</span>
-                                        <span>someone@gmail.com</span>
-                                    </div>
-                                    <div className="submit">
-                                        <button
-                                            tabIndex="0"
-                                            name="btn_share"
-                                            aria-label='share'
-                                            onClick={this.handleSubmit}
-                                        >
-                                            Share a movie
-                                        </button>
-                                    </div>
-                                    <div className="submit">
-                                        <button
-                                            tabIndex="0"
-                                            name="btn_logout"
-                                            aria-label='logout'
-                                            onClick={this.handleLogout}
-                                        >
-                                            Log out
-                                        </button>
-                                    </div>
-                                </>
+                    if (err) {
+                        return console.error(err);
+                    }
+
+                    if (isExistPassword) {
+                        toast.success("Login successful");
+                        return setState((prevState) => {
+                            return {
+                                ...prevState,
+                                isSignedIn: true
                             }
-                        </div>
+                        })
+                    } else {
+                        toast.error("Password does not match");
+                    }
+
+                });
+            } else {
+                return toast.error("User does not exist");
+            }
+        } else {
+            if (!isEmpty(duplicateEmailAccount)) {
+                return toast.error("Duplicate email");
+            }
+
+            const data = {
+                email,
+                password: hashedPassword
+            };
+
+            localStorage.setItem('accounts', JSON.stringify([...accounts, data]));
+            setState((prevState) => {
+                return {
+                    ...prevState,
+                    isSignedIn: true
+                }
+            })
+            return toast.success("Register successful");
+        }
+
+    }, [email, password]);
+
+    const handleLogout = useCallback(() => {
+        return setState((prevState) => {
+            return {
+                ...prevState,
+                isSignedIn: false
+            }
+        })
+    }, []);
+
+    return (
+        <header>
+            <div className="header_content">
+                <div className="header_side">
+                    <div className="logo">FUNNY MOVIES</div>
+                </div>
+                <div className="header_side">
+                    <div className='signin'>
+                        {(!isSignedIn &&
+                            <>
+                                <div>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        className="input"
+                                        type="text"
+                                        value={email}
+                                        onChange={handleChange}
+                                        autoComplete="email"
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        id="password"
+                                        name="password"
+                                        className="input"
+                                        type='password'
+                                        value={password}
+                                        autoComplete="new-password"
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="submit">
+                                    <button
+                                        tabIndex="0"
+                                        name={LOGIN_BTN_NAME}
+                                        aria-label='login'
+                                        onClick={handleSubmit}
+                                        disabled={!email || !password}
+                                    >
+                                        Login
+                                    </button>
+                                </div>
+
+                                <div className="submit">
+                                    <button
+                                        tabIndex="0"
+                                        name="btn-register"
+                                        aria-label='login'
+                                        onClick={handleSubmit}
+                                        disabled={!email || !password}
+                                    >
+                                         Register
+                                    </button>
+                                </div>
+                            </>)
+                        ||
+                        <>
+                            <div className="">
+                                <span>{`Welcome ${email}`}</span>
+                            </div>
+                            <div className="submit">
+                                <button
+                                    tabIndex="0"
+                                    name="btn_share"
+                                    aria-label='share'
+                                    onClick={handleSubmit}
+                                >
+                                    Share a movie
+                                </button>
+                            </div>
+                            <div className="submit">
+                                <button
+                                    tabIndex="0"
+                                    name="btn_logout"
+                                    aria-label='logout'
+                                    onClick={handleLogout}
+                                >
+                                    Log out
+                                </button>
+                            </div>
+                        </>
+                        }
                     </div>
                 </div>
-            </header>
-        );
-    };
+            </div>
+            <ToastContainer/>
+        </header>
+    );
 }
+
 export default Header;
+

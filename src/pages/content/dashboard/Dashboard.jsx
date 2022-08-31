@@ -1,13 +1,26 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import DataRow from "./components/DataRow";
-import "./styles.scss";
+
 import { getVideos } from "../../../services/youtube.service";
 
-function Dashboard(props) {
+import "./styles.scss";
+
+function Dashboard() {
     const [state, setState] = useState({
         data: [],
         isLoading: false
     });
+
+    const isMounted = useRef(false);
+
+    const { data, isLoading } = state;
+
+    useEffect(function () {
+        isMounted.current = true;
+        return function () {
+            isMounted.current = false;
+        };
+    }, []);
 
     useEffect(() => {
         const fetchData = async function fetchData() {
@@ -17,6 +30,7 @@ function Dashboard(props) {
                     setState((prevState) => {
                         return {
                             ...prevState,
+                            isLoading: true,
                             data
                         }
                     })
@@ -26,11 +40,11 @@ function Dashboard(props) {
             }
         }
 
-        fetchData();
+        if (isMounted.current && !isLoading) {
+            fetchData();
+        }
 
-    }, [])
-
-    const { data } = state;
+    }, [isLoading])
 
     const content = useMemo(function () {
         if (!data.length) {
