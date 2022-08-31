@@ -29,7 +29,7 @@ function SharedMovie (){
         }
 
         return toast.error("The youtube link is invalid");
-    }, [url]);
+    }, [url, navigate]);
 
     return(
         <div className="ctn">

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import DataRow from "./components/DataRow";
+import Loader from "../../common/loader/Loader";
 
 import { getVideos } from "../../../services/youtube.service";
 
@@ -8,12 +9,13 @@ import "./styles.scss";
 function Dashboard() {
     const [state, setState] = useState({
         data: [],
-        isLoading: false
     });
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const isMounted = useRef(false);
 
-    const { data, isLoading } = state;
+    const { data } = state;
 
     useEffect(function () {
         isMounted.current = true;
@@ -25,28 +27,34 @@ function Dashboard() {
     useEffect(() => {
         const fetchData = async function fetchData() {
             try {
+                setIsLoading(true);
                 const data = await getVideos();
+                setIsLoading(false);
                 if (!!data) {
                     setState((prevState) => {
                         return {
                             ...prevState,
-                            isLoading: true,
                             data
                         }
-                    })
+                    });
                 }
             } catch (error) {
                 console.error(error)
             }
         }
 
-        if (isMounted.current && !isLoading) {
+        if (isMounted.current) {
             fetchData();
         }
 
-    }, [isLoading])
+    }, [])
 
     const content = useMemo(function () {
+        if(isLoading){
+            return(
+                <Loader />
+            );
+        }
         if (!data.length) {
             return (
                 <div>No data available</div>
@@ -62,7 +70,7 @@ function Dashboard() {
                 );
             })
         );
-    }, [data]);
+    }, [data, isLoading]);
 
     return (
         <div className="content">

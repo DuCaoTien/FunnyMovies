@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import Button from '../../../common/button';
+import Like from '../../../../assets/like.png';
 import "./styles.scss";
 
 const DataRow = memo(function DataRow(props) {
@@ -17,10 +18,14 @@ const DataRow = memo(function DataRow(props) {
         <div className="row">
             <div className="side">
                 <iframe
+                    loading="lazy"
+                    title={formattedLink}
                     src={formattedLink}
                     frameBorder="0"
                     width="80%"
                     height="100%"
+                    allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"
+                    allowFullScreen
                 />
             </div>
             <div className="side">
@@ -32,12 +37,12 @@ const DataRow = memo(function DataRow(props) {
                     </div>
                 </div>
                 <div className="w100 action">
-                    <Button name="voted-up">
-                        {likeCount}
+                    <Button
+                        name="voted-up"
+                        rightIcon={<img src={Like} alt='like'/>}
+                    >
+                        <span>{likeCount}</span>
                     </Button>
-                    {/*<Button name="voted-down">*/}
-                    {/*    {votedDown}*/}
-                    {/*</Button>*/}
                 </div>
                 <div className="w100 des">
                     <div className="label">Description</div>

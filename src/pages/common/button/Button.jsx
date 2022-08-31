@@ -12,13 +12,14 @@ const Button = forwardRef(function (props, ref) {
         leftIcon,
         rightIcon,
         disabled,
+        className,
         ...rest
     } = props;
 
     return (
         <button
             type="submit"
-            className="btn"
+            className={`btn ${className ?? ""}`}
             onClick={onClick}
             name={name}
             aria-label={name}
@@ -39,7 +40,8 @@ Button.propTypes = {
     onClick: PropTypes.func,
     leftIcon: PropTypes.element,
     rightIcon: PropTypes.element,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    className: PropTypes.string
 }
 
 Button.defaultProps = {

@@ -14,10 +14,19 @@ header{
 }
 
 .header_side{
+    .logo{
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+    }
     .signin{
         display: flex;
         > div {
             margin-left: 1rem;
         }
+    }
+    input{
+        height: 30px;
+        padding: 0 4px;
     }
 }

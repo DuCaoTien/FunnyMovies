@@ -124,11 +124,17 @@ function Header() {
         }
     }, [navigate]);
 
+    const goHomePage = useCallback(() => {
+        if (typeof navigate === 'function') {
+            navigate('/');
+        }
+    }, [navigate]);
+
     return (
         <header>
             <div className="header_content">
                 <div className="header_side">
-                    <div className="logo">FUNNY MOVIES</div>
+                    <div className="logo" onClick={goHomePage}>FUNNY MOVIES</div>
                 </div>
                 <div className="header_side">
                     <div className='signin'>
@@ -143,6 +149,7 @@ function Header() {
                                         value={email}
                                         onChange={handleChange}
                                         autoComplete="email"
+                                        placeholder='Email'
                                     />
                                 </div>
                                 <div>
@@ -154,10 +161,12 @@ function Header() {
                                         value={password}
                                         autoComplete="new-password"
                                         onChange={handleChange}
+                                        placeholder='Password'
                                     />
                                 </div>
                                 <div className="submit">
                                     <button
+                                        className='btn'
                                         tabIndex="0"
                                         name={LOGIN_BTN_NAME}
                                         aria-label='login'
@@ -170,9 +179,10 @@ function Header() {
 
                                 <div className="submit">
                                     <button
+                                        className='btn'
                                         tabIndex="0"
                                         name="btn-register"
-                                        aria-label='login'
+                                        aria-label='register'
                                         onClick={handleSubmit}
                                         disabled={!email || !password}
                                     >
@@ -187,6 +197,7 @@ function Header() {
                             </div>
                             <div className="submit">
                                 <button
+                                    className='btn'
                                     tabIndex="0"
                                     name="btn_share"
                                     aria-label='share'
@@ -197,6 +208,7 @@ function Header() {
                             </div>
                             <div className="submit">
                                 <button
+                                    className='btn'
                                     tabIndex="0"
                                     name="btn_logout"
                                     aria-label='logout'
