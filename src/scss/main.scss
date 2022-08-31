@@ -33,6 +33,9 @@ button:disabled {
 	overflow: hidden;
 	cursor: not-allowed;
 }
+button:hover {
+	cursor: pointer;
+}
 textarea,
 input.text,
 input[type="text"],

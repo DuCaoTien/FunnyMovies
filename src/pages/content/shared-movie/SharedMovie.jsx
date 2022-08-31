@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Button from "../../common/button";
+import { getVideos } from "../../../services/youtube.service";
+
 import "./styles.scss";
 
 function SharedMovie (){
     const [url, setUrl] = useState('');
+    const navigate = useNavigate();
 
-    const handleChange = function ({ target: { name, value } }) {
-        setUrl(value);
-    };
+    const handleChange = useCallback(({target: {name, value}}) => {
+        if (!!value) {
+            setUrl(value);
+        }
+    }, []);
+
+    const handleShare = useCallback(async () => {
+        if (url) {
+            const storageLinks = JSON.parse(localStorage.getItem('youtubeLinks')) || [];
+
+            if (!!storageLinks.length) {
+                await localStorage.setItem('youtubeLinks', JSON.stringify([url, ...storageLinks]));
+            }
+
+            await getVideos(url);
+            navigate('/');
+        }
+    }, [url]);
 
     return(
         <div className="ctn">
@@ -29,6 +49,7 @@ function SharedMovie (){
                     <Button
                         name="share"
                         disabled={!url}
+                        onClick={handleShare}
                     >
                         Share
                     </Button>

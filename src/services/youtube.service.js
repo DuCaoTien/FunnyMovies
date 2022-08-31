@@ -1,14 +1,18 @@
 import axios from "axios"
 import { getVideoIdByUrl } from "../helpers/helpers";
-
-const youtubeLinks = [
-    "https://www.youtube.com/watch?v=ql3QS4bzcWg&ab_channel=%C4%90enV%C3%A2uOfficial",
-    "https://www.youtube.com/watch?v=K9GdlbNAmYU&ab_channel=ARKARecords"
-]
+import { YOUTUBE_LINKS } from "../constants/link";
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 export const getVideos = async () => {
+
+    let youtubeLinks = JSON.parse(localStorage.getItem('youtubeLinks')) || [];
+
+    if (!youtubeLinks.length) {
+        await localStorage.setItem('youtubeLinks', JSON.stringify(YOUTUBE_LINKS));
+        youtubeLinks = YOUTUBE_LINKS;
+    }
+
     try {
         return await Promise.all(
             youtubeLinks.map(async (link) => {

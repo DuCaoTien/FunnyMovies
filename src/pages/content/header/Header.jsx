@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { useState, useCallback, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import isEmpty from 'lodash/isEmpty'
 import bcrypt from 'bcryptjs'
 
@@ -19,6 +20,20 @@ function Header() {
     });
 
     const { email, password, isSignedIn } = state;
+    const navigate = useNavigate();
+
+    useEffect(function () {
+        const signedUser = JSON.parse(localStorage.getItem('signedUser')) || '';
+        if (signedUser) {
+            return setState((prevState) => {
+                return {
+                    ...prevState,
+                    isSignedIn: true,
+                    email: signedUser
+                }
+            })
+        }
+    }, [])
 
     const handleChange = useCallback((event) => {
         setState((prevState) => {
@@ -52,6 +67,7 @@ function Header() {
 
                     if (isExistPassword) {
                         toast.success("Login successful");
+                        localStorage.setItem('signedUser', JSON.stringify(email));
                         return setState((prevState) => {
                             return {
                                 ...prevState,
@@ -77,6 +93,7 @@ function Header() {
             };
 
             localStorage.setItem('accounts', JSON.stringify([...accounts, data]));
+            localStorage.setItem('signedUser', JSON.stringify(email));
             setState((prevState) => {
                 return {
                     ...prevState,
@@ -89,13 +106,23 @@ function Header() {
     }, [email, password]);
 
     const handleLogout = useCallback(() => {
-        return setState((prevState) => {
+        localStorage.removeItem('signedUser');
+        setState((prevState) => {
             return {
                 ...prevState,
                 isSignedIn: false
             }
-        })
-    }, []);
+        });
+        if (typeof navigate === 'function') {
+            navigate('/');
+        }
+    }, [navigate]);
+
+    const handleShareMovie = useCallback(() => {
+        if (typeof navigate === 'function') {
+            navigate('/share');
+        }
+    }, [navigate]);
 
     return (
         <header>
@@ -163,7 +190,7 @@ function Header() {
                                     tabIndex="0"
                                     name="btn_share"
                                     aria-label='share'
-                                    onClick={handleSubmit}
+                                    onClick={handleShareMovie}
                                 >
                                     Share a movie
                                 </button>
@@ -183,7 +210,6 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <ToastContainer/>
         </header>
     );
 }
