@@ -1,10 +1,11 @@
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import isEmpty from 'lodash/isEmpty'
 
 import Button from "../../common/button";
-import { getVideos } from "../../../services/youtube.service";
-import { isValidYoutubeUrl } from "../../../helpers/helpers";
+import { getVideoDetails } from "../../../services/youtube.service";
+import { getVideoIdByUrl, isValidYoutubeUrl } from "../../../helpers/helpers";
 
 import "./styles.scss";
 
@@ -18,14 +19,20 @@ function SharedMovie (){
 
     const handleShare = useCallback(async () => {
         if (!!url && isValidYoutubeUrl(url)) {
-            const storageLinks = JSON.parse(localStorage.getItem('youtubeLinks')) || [];
 
-            if (!!storageLinks.length) {
-                await localStorage.setItem('youtubeLinks', JSON.stringify([url, ...storageLinks]));
+            const videoId = getVideoIdByUrl(url);
+            if (!videoId) return;
+
+            const response = await getVideoDetails(videoId, url);
+
+            if (response?.isDuplicateLink) {
+                return toast.error("The youtube link is exist");
             }
 
-            await getVideos(url);
-            return navigate('/');
+            if (!isEmpty(response)) {
+                toast.success("Share the youtube successful");
+                return navigate('/');
+            }
         }
 
         return toast.error("The youtube link is invalid");

@@ -1,6 +1,8 @@
 import { memo } from 'react';
+
 import Button from '../../../common/button';
 import Like from '../../../../assets/like.png';
+
 import "./styles.scss";
 
 const DataRow = memo(function DataRow(props) {
