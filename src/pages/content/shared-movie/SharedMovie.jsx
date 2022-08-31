@@ -1,8 +1,10 @@
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 import Button from "../../common/button";
 import { getVideos } from "../../../services/youtube.service";
+import { isValidYoutubeUrl } from "../../../helpers/helpers";
 
 import "./styles.scss";
 
@@ -11,13 +13,11 @@ function SharedMovie (){
     const navigate = useNavigate();
 
     const handleChange = useCallback(({target: {name, value}}) => {
-        if (!!value) {
-            setUrl(value);
-        }
+        setUrl(value);
     }, []);
 
     const handleShare = useCallback(async () => {
-        if (url) {
+        if (!!url && isValidYoutubeUrl(url)) {
             const storageLinks = JSON.parse(localStorage.getItem('youtubeLinks')) || [];
 
             if (!!storageLinks.length) {
@@ -25,8 +25,10 @@ function SharedMovie (){
             }
 
             await getVideos(url);
-            navigate('/');
+            return navigate('/');
         }
+
+        return toast.error("The youtube link is invalid");
     }, [url]);
 
     return(

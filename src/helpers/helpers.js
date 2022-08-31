@@ -12,7 +12,10 @@ const getVideoIdByUrl = (youtubeLink) => {
 
 const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
 
+const isValidYoutubeUrl = (url) => /^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/.test(url);
+
 export {
     getVideoIdByUrl,
-    isValidEmail
+    isValidEmail,
+    isValidYoutubeUrl
 }
