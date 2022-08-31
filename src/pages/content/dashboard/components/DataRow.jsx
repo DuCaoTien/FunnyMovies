@@ -1,20 +1,23 @@
-import {memo} from 'react';
+import { memo } from 'react';
 import Button from '../../../common/button';
 import "./styles.scss";
 
 const DataRow = memo(function DataRow(props) {
-    const {data} = props;
+    const { data } = props;
     const {
-        thumbnails,
         localized: { title = "", description = ""} = {},
         channelTitle,
-        likeCount
+        likeCount,
+        link
     } = data;
+
+    const formattedLink = link.replace("watch?v=", "embed/").split('&list=')[0];
+
     return (
         <div className="row">
             <div className="side">
                 <iframe
-                    src={thumbnails.medium.url}
+                    src={formattedLink}
                     frameBorder="0"
                     width="80%"
                     height="100%"

@@ -18,7 +18,7 @@ export const getVideos = async () => {
             youtubeLinks.map(async (link) => {
                 const videoId = getVideoIdByUrl(link);
                 if (videoId) {
-                    return await getVideoDetails(videoId);
+                    return await getVideoDetails(videoId, link);
                 }
             })
         );
@@ -27,10 +27,11 @@ export const getVideos = async () => {
     }
 }
 
-const getVideoDetails = async (videoId) => {
+const getVideoDetails = async (videoId, link) => {
     try {
         const videoResponse = await axios(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=player&part=statistics&id=${videoId}&key=${API_KEY}`);
         return {
+            link: link,
             ...videoResponse.data?.items[0]?.snippet,
             ...videoResponse.data?.items[0]?.contentDetails,
             ...videoResponse.data?.items[0]?.statistics
