@@ -11,7 +11,7 @@ const DataRow = memo(function DataRow(props) {
         link
     } = data;
 
-    const formattedLink = link.replace("watch?v=", "embed/").split('&list=')[0];
+    const formattedLink = link.replace("watch?v=", "embed/").split('&')[0];
 
     return (
         <div className="row">
