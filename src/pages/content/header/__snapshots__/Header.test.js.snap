@@ -24,52 +24,35 @@ Object {
             <div
               class="signin"
             >
-              <div>
-                <input
-                  autocomplete="email"
-                  class="input"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div>
-                <input
-                  autocomplete="new-password"
-                  class="input"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  value=""
-                />
+              <div
+                class=""
+              >
+                <span>
+                  Welcome someone@gmail.com
+                </span>
               </div>
               <div
                 class="submit"
               >
                 <button
-                  aria-label="login"
+                  aria-label="share"
                   class="btn"
-                  disabled=""
-                  name="btn_login"
+                  name="btn_share"
                   tabindex="0"
                 >
-                  Login
+                  Share a movie
                 </button>
               </div>
               <div
                 class="submit"
               >
                 <button
-                  aria-label="register"
+                  aria-label="logout"
                   class="btn"
-                  disabled=""
-                  name="btn-register"
+                  name="btn_logout"
                   tabindex="0"
                 >
-                  Register
+                  Log out
                 </button>
               </div>
             </div>
@@ -98,52 +81,35 @@ Object {
           <div
             class="signin"
           >
-            <div>
-              <input
-                autocomplete="email"
-                class="input"
-                id="email"
-                name="email"
-                placeholder="Email"
-                type="text"
-                value=""
-              />
-            </div>
-            <div>
-              <input
-                autocomplete="new-password"
-                class="input"
-                id="password"
-                name="password"
-                placeholder="Password"
-                type="password"
-                value=""
-              />
+            <div
+              class=""
+            >
+              <span>
+                Welcome someone@gmail.com
+              </span>
             </div>
             <div
               class="submit"
             >
               <button
-                aria-label="login"
+                aria-label="share"
                 class="btn"
-                disabled=""
-                name="btn_login"
+                name="btn_share"
                 tabindex="0"
               >
-                Login
+                Share a movie
               </button>
             </div>
             <div
               class="submit"
             >
               <button
-                aria-label="register"
+                aria-label="logout"
                 class="btn"
-                disabled=""
-                name="btn-register"
+                name="btn_logout"
                 tabindex="0"
               >
-                Register
+                Log out
               </button>
             </div>
           </div>

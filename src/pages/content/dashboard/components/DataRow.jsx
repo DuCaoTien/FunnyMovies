@@ -14,7 +14,7 @@ const DataRow = memo(function DataRow(props) {
         link
     } = data;
 
-    const formattedLink = link.replace("watch?v=", "embed/").split('&')[0];
+    const formattedLink = !!link ? link.replace("watch?v=", "embed/").split('&')[0] : "";
 
     return (
         <div className="row">
@@ -48,8 +48,7 @@ const DataRow = memo(function DataRow(props) {
                     </Button>
                 </div>
                 <div className="w100 des">
-                    <div className="label">Description: </div>
-                    <p>{description}</p>
+                    <div>{description}</div>
                 </div>
             </div>
         </div>

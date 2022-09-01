@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data row runs as expected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="row"
+      >
+        <div
+          class="side"
+        >
+          <div
+            class="bg"
+          />
+          <iframe
+            allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"
+            allowfullscreen=""
+            frameborder="0"
+            height="340px"
+            loading="lazy"
+            src="https://www.youtube.com/embed/ql3QS4bzcWg"
+            title="https://www.youtube.com/embed/ql3QS4bzcWg"
+            width="480px"
+          />
+        </div>
+        <div
+          class="side"
+        >
+          <div
+            class="w100 info"
+          >
+            <div
+              class="title"
+            >
+              Đen - Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Prod. by I TEU) [Official Audio]
+            </div>
+            <div
+              class="subTitle"
+            >
+              <span>
+                Shared by: 
+              </span>
+              <span>
+                Đen Vâu Official
+              </span>
+            </div>
+          </div>
+          <div
+            class="w100 action"
+          >
+            <button
+              aria-label="voted-up"
+              class="btn "
+              name="voted-up"
+              type="submit"
+            >
+              <span>
+                27746
+              </span>
+              <img
+                alt="like"
+                src="like.png"
+              />
+            </button>
+          </div>
+          <div
+            class="w100 des"
+          >
+            <div>
+              Ta Cứ Đi Cùng Nhau - Đen ft. Linh Cáo
+Download/Stream: https://Denvau.lnk.to/TCDCN
+
+Prod. by Nam Phong Truong & D.A From #iTeu
+Recording: CWave Studio & SOS Studio
+Mix & Mastering by Trác Ngọc Lĩnh @ ACK Studio
+Credit to http://www.freesfx.co.uk for the Ocean Waves, Children and Seagull sounds.
+
+follow Linh Cáo:
+/youtube: https://www.youtube.com/channel/UCHkZEgtTon7Dliw2NYPyjRQ
+/facebook:  https://www.facebook.com/thuylinh.nguyen.7161
+/instagram: https://www.instagram.com/linhcao_021190/
+
+follow Đen:
+/instagram: https://www.instagram.com/den.vau/
+/youtube :    http://www.youtube.com/c/DenVau1305
+/spotify:       https://spoti.fi/2BAHtnX
+/itunes:        https://apple.co/2zCT9oQ
+/facebook:
+//////page:    https://www.facebook.com/denvau
+////profile:    https://www.facebook.com/denvau1305
+#tacudicungnhau #den #linhcao
+
+© 2017 Đen
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="row"
+    >
+      <div
+        class="side"
+      >
+        <div
+          class="bg"
+        />
+        <iframe
+          allow="accelerometer; autoplay;encrypted-media; gyroscope;picture-in-picture"
+          allowfullscreen=""
+          frameborder="0"
+          height="340px"
+          loading="lazy"
+          src="https://www.youtube.com/embed/ql3QS4bzcWg"
+          title="https://www.youtube.com/embed/ql3QS4bzcWg"
+          width="480px"
+        />
+      </div>
+      <div
+        class="side"
+      >
+        <div
+          class="w100 info"
+        >
+          <div
+            class="title"
+          >
+            Đen - Ta Cứ Đi Cùng Nhau ft. Linh Cáo (Prod. by I TEU) [Official Audio]
+          </div>
+          <div
+            class="subTitle"
+          >
+            <span>
+              Shared by: 
+            </span>
+            <span>
+              Đen Vâu Official
+            </span>
+          </div>
+        </div>
+        <div
+          class="w100 action"
+        >
+          <button
+            aria-label="voted-up"
+            class="btn "
+            name="voted-up"
+            type="submit"
+          >
+            <span>
+              27746
+            </span>
+            <img
+              alt="like"
+              src="like.png"
+            />
+          </button>
+        </div>
+        <div
+          class="w100 des"
+        >
+          <div>
+            Ta Cứ Đi Cùng Nhau - Đen ft. Linh Cáo
+Download/Stream: https://Denvau.lnk.to/TCDCN
+
+Prod. by Nam Phong Truong & D.A From #iTeu
+Recording: CWave Studio & SOS Studio
+Mix & Mastering by Trác Ngọc Lĩnh @ ACK Studio
+Credit to http://www.freesfx.co.uk for the Ocean Waves, Children and Seagull sounds.
+
+follow Linh Cáo:
+/youtube: https://www.youtube.com/channel/UCHkZEgtTon7Dliw2NYPyjRQ
+/facebook:  https://www.facebook.com/thuylinh.nguyen.7161
+/instagram: https://www.instagram.com/linhcao_021190/
+
+follow Đen:
+/instagram: https://www.instagram.com/den.vau/
+/youtube :    http://www.youtube.com/c/DenVau1305
+/spotify:       https://spoti.fi/2BAHtnX
+/itunes:        https://apple.co/2zCT9oQ
+/facebook:
+//////page:    https://www.facebook.com/denvau
+////profile:    https://www.facebook.com/denvau1305
+#tacudicungnhau #den #linhcao
+
+© 2017 Đen
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

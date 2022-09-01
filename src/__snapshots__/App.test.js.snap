@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App runs as expected 1`] = `
+exports[`Integration Test Dashboard page runs as expected 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -27,52 +27,35 @@ Object {
               <div
                 class="signin"
               >
-                <div>
-                  <input
-                    autocomplete="email"
-                    class="input"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    type="text"
-                    value=""
-                  />
-                </div>
-                <div>
-                  <input
-                    autocomplete="new-password"
-                    class="input"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                    value=""
-                  />
+                <div
+                  class=""
+                >
+                  <span>
+                    Welcome someone@gmail.com
+                  </span>
                 </div>
                 <div
                   class="submit"
                 >
                   <button
-                    aria-label="login"
+                    aria-label="share"
                     class="btn"
-                    disabled=""
-                    name="btn_login"
+                    name="btn_share"
                     tabindex="0"
                   >
-                    Login
+                    Share a movie
                   </button>
                 </div>
                 <div
                   class="submit"
                 >
                   <button
-                    aria-label="register"
+                    aria-label="logout"
                     class="btn"
-                    disabled=""
-                    name="btn-register"
+                    name="btn_logout"
                     tabindex="0"
                   >
-                    Register
+                    Log out
                   </button>
                 </div>
               </div>
@@ -145,12 +128,7 @@ Object {
               <div
                 class="w100 des"
               >
-                <div
-                  class="label"
-                >
-                  Description: 
-                </div>
-                <p>
+                <div>
                   Ta Cứ Đi Cùng Nhau - Đen ft. Linh Cáo
 Download/Stream: https://Denvau.lnk.to/TCDCN
 
@@ -175,7 +153,7 @@ follow Đen:
 #tacudicungnhau #den #linhcao
 
 © 2017 Đen
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -209,52 +187,35 @@ follow Đen:
             <div
               class="signin"
             >
-              <div>
-                <input
-                  autocomplete="email"
-                  class="input"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  type="text"
-                  value=""
-                />
-              </div>
-              <div>
-                <input
-                  autocomplete="new-password"
-                  class="input"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  value=""
-                />
+              <div
+                class=""
+              >
+                <span>
+                  Welcome someone@gmail.com
+                </span>
               </div>
               <div
                 class="submit"
               >
                 <button
-                  aria-label="login"
+                  aria-label="share"
                   class="btn"
-                  disabled=""
-                  name="btn_login"
+                  name="btn_share"
                   tabindex="0"
                 >
-                  Login
+                  Share a movie
                 </button>
               </div>
               <div
                 class="submit"
               >
                 <button
-                  aria-label="register"
+                  aria-label="logout"
                   class="btn"
-                  disabled=""
-                  name="btn-register"
+                  name="btn_logout"
                   tabindex="0"
                 >
-                  Register
+                  Log out
                 </button>
               </div>
             </div>
@@ -327,12 +288,7 @@ follow Đen:
             <div
               class="w100 des"
             >
-              <div
-                class="label"
-              >
-                Description: 
-              </div>
-              <p>
+              <div>
                 Ta Cứ Đi Cùng Nhau - Đen ft. Linh Cáo
 Download/Stream: https://Denvau.lnk.to/TCDCN
 
@@ -357,8 +313,279 @@ follow Đen:
 #tacudicungnhau #den #linhcao
 
 © 2017 Đen
-              </p>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Toastify"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Integration Test Share movies runs as expected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="App"
+      >
+        <header>
+          <div
+            class="header_content"
+          >
+            <div
+              class="header_side"
+            >
+              <div
+                class="logo"
+              >
+                FUNNY MOVIES
+              </div>
+            </div>
+            <div
+              class="header_side"
+            >
+              <div
+                class="signin"
+              >
+                <div
+                  class=""
+                >
+                  <span>
+                    Welcome someone@gmail.com
+                  </span>
+                </div>
+                <div
+                  class="submit"
+                >
+                  <button
+                    aria-label="share"
+                    class="btn"
+                    name="btn_share"
+                    tabindex="0"
+                  >
+                    Share a movie
+                  </button>
+                </div>
+                <div
+                  class="submit"
+                >
+                  <button
+                    aria-label="logout"
+                    class="btn"
+                    name="btn_logout"
+                    tabindex="0"
+                  >
+                    Log out
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div
+          class="ctn"
+        >
+          <div
+            class="box"
+          >
+            <div
+              class="label"
+            >
+              Share a Youtube movie
+            </div>
+            <div
+              class="url"
+            >
+              <label
+                for="url"
+              >
+                Youtube URL:
+              </label>
+              <input
+                aria-label="url"
+                autocomplete="url"
+                class="input"
+                id="url"
+                name="url"
+                type="text"
+                value="https://www.youtube.com/watch?v=DAJFmBP9dzU"
+              />
+            </div>
+            <div
+              class="action"
+            >
+              <button
+                aria-label="share"
+                class="btn "
+                name="share"
+                type="submit"
+              >
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="Toastify"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+    >
+      <header>
+        <div
+          class="header_content"
+        >
+          <div
+            class="header_side"
+          >
+            <div
+              class="logo"
+            >
+              FUNNY MOVIES
+            </div>
+          </div>
+          <div
+            class="header_side"
+          >
+            <div
+              class="signin"
+            >
+              <div
+                class=""
+              >
+                <span>
+                  Welcome someone@gmail.com
+                </span>
+              </div>
+              <div
+                class="submit"
+              >
+                <button
+                  aria-label="share"
+                  class="btn"
+                  name="btn_share"
+                  tabindex="0"
+                >
+                  Share a movie
+                </button>
+              </div>
+              <div
+                class="submit"
+              >
+                <button
+                  aria-label="logout"
+                  class="btn"
+                  name="btn_logout"
+                  tabindex="0"
+                >
+                  Log out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div
+        class="ctn"
+      >
+        <div
+          class="box"
+        >
+          <div
+            class="label"
+          >
+            Share a Youtube movie
+          </div>
+          <div
+            class="url"
+          >
+            <label
+              for="url"
+            >
+              Youtube URL:
+            </label>
+            <input
+              aria-label="url"
+              autocomplete="url"
+              class="input"
+              id="url"
+              name="url"
+              type="text"
+              value="https://www.youtube.com/watch?v=DAJFmBP9dzU"
+            />
+          </div>
+          <div
+            class="action"
+          >
+            <button
+              aria-label="share"
+              class="btn "
+              name="share"
+              type="submit"
+            >
+              Share
+            </button>
           </div>
         </div>
       </div>

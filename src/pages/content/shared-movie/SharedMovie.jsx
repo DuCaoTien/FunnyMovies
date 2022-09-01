@@ -45,6 +45,7 @@ function SharedMovie (){
                 <div className="url">
                     <label htmlFor="url">Youtube URL:</label>
                     <input
+                        aria-label="url"
                         id="url"
                         name="url"
                         className="input"

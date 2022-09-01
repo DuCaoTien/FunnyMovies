@@ -15,6 +15,7 @@ function App() {
             <React.Fragment>
                 <Header/>
                 <Routes>
+                    <Route exact path='*' element={<Dashboard/>}/>
                     <Route exact path='/FunnyMovies/' element={<Dashboard/>}/>
                     <Route
                         exact

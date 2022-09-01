@@ -142,6 +142,7 @@ function Header() {
                             <>
                                 <div>
                                     <input
+                                        aria-label="email"
                                         id="email"
                                         name="email"
                                         className="input"
@@ -154,6 +155,7 @@ function Header() {
                                 </div>
                                 <div>
                                     <input
+                                        aria-label="password"
                                         id="password"
                                         name="password"
                                         className="input"
